@@ -1,0 +1,6 @@
+{
+    "connect-src": [
+        "*.api.cosmotech.com",
+        "https://kubernetes.cosmotech.com"
+    ]
+}

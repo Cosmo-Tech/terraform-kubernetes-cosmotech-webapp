@@ -1,0 +1,35 @@
+name: ${WEBAPP_DEPLOYMENT_NAME}
+webapp:
+  domainName: "${API_DNS_NAME}"
+  publicUrl: "${WEBAPP_PUBLIC_URL}"
+  server:
+    nodeSelector:
+      "cosmotech.com/tier": "services"
+    image:
+      pullSecret: ""
+      repository: "${IMAGE_REPOSITORY_SERVER}"
+      tag: latest
+      pullPolicy: Always
+  functions:
+    nodeSelector:
+      "cosmotech.com/tier": "services"
+    image:
+      pullSecret: ""
+      repository: "${IMAGE_REPOSITORY_FUNCTIONS}"
+      tag: latest
+      pullPolicy: Always
+keycloak:
+  realmUrl: "${KEYCLOAK_URL_AUTH}"
+powerbi:
+  tenantId: "${POWERBI_APP_TENANT_ID}"
+  clientId: "${POWERBI_APP_CLIENT_ID}"
+  clientSecret: "${POWERBI_APP_SECRET}"
+ingress:
+  enabled: true
+resources:
+  limits:
+    cpu: 1000m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 128Mi

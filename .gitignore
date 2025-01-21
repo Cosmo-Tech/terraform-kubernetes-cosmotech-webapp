@@ -1,0 +1,9 @@
+.terraform.lock.hcl
+modules.json
+.terraform/
+.terraform.*
+terraform.*
+tfplan*
+*.sh
+!terraform.default.tfvars
+!terraform.base.tfvars
