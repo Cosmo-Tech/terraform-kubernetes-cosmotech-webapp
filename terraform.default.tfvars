@@ -1,7 +1,19 @@
+# kubernetes
+kube_config                 = ""
+kube_context                = ""
+kubernetes_tenant_namespace = ""
+
+# app powerbi
+app_deploy            = true
+azure_client_id       = ""
+azure_client_secret   = ""
+azure_tenant_id       = ""
+azure_subscription_id = ""
+audience              = "AzureADMyOrg"
+cluster_name          = ""
 
 # webapp
 webapp_deploy                = true
-kubernetes_tenant_namespace  = ""
 webapp_helm_chart_repository = "https://cosmo-tech.github.io/helm-charts/"
 webapp_helm_chart_name       = "cosmotech-business-webapp"
 webapp_helm_chart_version    = ""
@@ -13,6 +25,18 @@ realm_client_id              = ""
 realm_client_name            = ""
 realm_client_public_url      = ""
 realm_client_roles_jwt_claim = "customRoles"
+realm_client_access_type     = "PUBLIC"
+realm_clien_valid_redirect_uris = [
+  ""
+]
+realm_client_web_origins                 = ["+"]
+realm_client_root_url                    = ""
+realm_client_admin_url                   = ""
+realm_client_base_url                    = ""
+realm_client_standard_flow_enabled       = false
+realm_client_frontchannel_logout_enabled = false
+realm_client_service_accounts_enabled    = false
+realm_client_full_scope_allowed          = false
 
 # keycloak
 keycloak_client_id     = ""

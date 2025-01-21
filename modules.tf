@@ -1,15 +1,40 @@
-module "deploy-webapp-client" {
-  source = "./deploy-webapp-client"
+module "deploy-powerbi-app" {
+  source = "./deploy-powerbi-app"
+
+  count = var.app_deploy ? 1 : 0
+
+  kubernetes_tenant_namespace = var.kubernetes_tenant_namespace
+  webapp_deployment_name      = var.webapp_deployment_name
+  azure_client_id             = var.azure_client_id
+  azure_client_secret         = var.azure_client_secret
+  azure_subscription_id       = var.azure_subscription_id
+  azure_tenant_id             = var.azure_tenant_id
+  cluster_name                = var.cluster_name
+  audience                    = var.audience
+}
+
+module "deploy-realm-client" {
+  source = "./deploy-realm-client"
 
   count = var.realm_client_deploy ? 1 : 0
 
-  kubernetes_tenant_namespace  = var.kubernetes_tenant_namespace
-  realm_id                     = var.realm_id
-  api_dns_name                 = var.api_dns_name
-  realm_client_id              = var.realm_client_id
-  realm_client_name            = var.realm_client_name
-  realm_client_public_url      = var.realm_client_public_url
-  realm_client_roles_jwt_claim = var.realm_client_roles_jwt_claim
+  kubernetes_tenant_namespace              = var.kubernetes_tenant_namespace
+  realm_id                                 = var.realm_id
+  api_dns_name                             = var.api_dns_name
+  realm_client_id                          = var.realm_client_id
+  realm_client_name                        = var.realm_client_name
+  realm_client_public_url                  = var.realm_client_public_url
+  realm_client_roles_jwt_claim             = var.realm_client_roles_jwt_claim
+  realm_client_access_type                 = var.realm_client_access_type
+  realm_clien_valid_redirect_uris          = var.realm_clien_valid_redirect_uris
+  realm_client_root_url                    = var.realm_client_root_url
+  realm_client_base_url                    = var.realm_client_base_url
+  realm_client_admin_url                   = var.realm_client_admin_url
+  realm_client_frontchannel_logout_enabled = var.realm_client_frontchannel_logout_enabled
+  realm_client_full_scope_allowed          = var.realm_client_full_scope_allowed
+  realm_client_service_accounts_enabled    = var.realm_client_service_accounts_enabled
+  realm_client_standard_flow_enabled       = var.realm_client_standard_flow_enabled
+  realm_client_web_origins                 = var.realm_client_web_origins
 
 }
 
@@ -56,5 +81,8 @@ module "deploy-webapp" {
   api_workspace_id                               = var.api_workspace_id
   webapp_powerbi_roles_jwt_claim                 = var.webapp_powerbi_roles_jwt_claim
 
-  depends_on = [module.deploy-webapp-client]
+  depends_on = [
+    module.deploy-realm-client,
+    module.deploy-powerbi-app
+  ]
 }

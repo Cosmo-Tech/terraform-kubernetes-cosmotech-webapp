@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "2.20.0"
     }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>4.1.0"
+    }
     helm = {
       source  = "hashicorp/helm"
       version = "2.17.0"
@@ -20,6 +24,10 @@ terraform {
   required_version = ">= 1.3.9"
 }
 
+# terraform {
+#   backend "azurerm" {}
+# }
+
 provider "keycloak" {
   client_id                = var.keycloak_client_id
   username                 = var.keycloak_username
@@ -28,18 +36,13 @@ provider "keycloak" {
   tls_insecure_skip_verify = true
 }
 
-locals {
-  kubeconfig      = var.kube_config
-  cluster_context = var.kube_context
-}
-
 provider "kubernetes" {
-  config_path    = local.kubeconfig
-  config_context = local.cluster_context
+  config_path    = var.kube_config
+  config_context = var.kube_context
 }
 
 provider "helm" {
   kubernetes {
-    config_path = local.kubeconfig
+    config_path = var.kube_config
   }
 }

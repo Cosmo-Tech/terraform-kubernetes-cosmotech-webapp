@@ -7,35 +7,31 @@ terraform {
   }
 }
 
-# create webapp client
-resource "keycloak_openid_client" "webapp-client" {
+resource "keycloak_openid_client" "realm-client" {
   realm_id  = var.realm_id
   client_id = var.realm_client_id
   name      = var.realm_client_name
   enabled   = true
 
-  standard_flow_enabled    = true
-  service_accounts_enabled = false
-  access_type              = "PUBLIC"
-  valid_redirect_uris = [
-    "https://${var.api_dns_name}${var.realm_client_public_url}",
-    "https://${var.api_dns_name}${var.realm_client_public_url}/*"
-  ]
+  standard_flow_enabled    = var.realm_client_standard_flow_enabled
+  service_accounts_enabled = var.realm_client_service_accounts_enabled
+  access_type              = var.realm_client_access_type
+  valid_redirect_uris      = var.realm_clien_valid_redirect_uris
 
   login_theme = "keycloak"
 
   # Added parameters
-  root_url                    = "https://${var.api_dns_name}${var.realm_client_public_url}"
-  base_url                    = "https://${var.api_dns_name}${var.realm_client_public_url}"
-  admin_url                   = "https://${var.api_dns_name}${var.realm_client_public_url}"
-  web_origins                 = ["+"]
-  full_scope_allowed          = true
-  frontchannel_logout_enabled = true
+  root_url                    = var.realm_client_root_url
+  base_url                    = var.realm_client_base_url
+  admin_url                   = var.realm_client_admin_url
+  web_origins                 = var.realm_client_web_origins
+  full_scope_allowed          = var.realm_client_full_scope_allowed
+  frontchannel_logout_enabled = var.realm_client_frontchannel_logout_enabled
 }
 
 resource "keycloak_generic_protocol_mapper" "branch_code_mapper" {
   realm_id        = var.realm_id
-  client_id       = keycloak_openid_client.webapp-client.id
+  client_id       = keycloak_openid_client.realm-client.id
   name            = "BranchCodeMapper"
   protocol        = "openid-connect"
   protocol_mapper = "oidc-usermodel-attribute-mapper"
@@ -47,13 +43,14 @@ resource "keycloak_generic_protocol_mapper" "branch_code_mapper" {
     "id.token.claim" : "false",
     "access.token.claim" : "true",
     "claim.name" : "branch",
-    "jsonType.label" : "String"
+    "jsonType.label" : "String",
+    "introspection.token.claim" : "true"
   }
 }
 
 resource "keycloak_generic_protocol_mapper" "email_mapper" {
   realm_id        = var.realm_id
-  client_id       = keycloak_openid_client.webapp-client.id
+  client_id       = keycloak_openid_client.realm-client.id
   name            = "email"
   protocol        = "openid-connect"
   protocol_mapper = "oidc-usermodel-property-mapper"
@@ -63,13 +60,14 @@ resource "keycloak_generic_protocol_mapper" "email_mapper" {
     "access.token.claim" : "true",
     "claim.name" : "email",
     "jsonType.label" : "String",
-    "userinfo.token.claim" : "true"
+    "userinfo.token.claim" : "true",
+    "introspection.token.claim" : "true"
   }
 }
 
 resource "keycloak_generic_protocol_mapper" "realm_roles_mapper" {
   realm_id        = var.realm_id
-  client_id       = keycloak_openid_client.webapp-client.id
+  client_id       = keycloak_openid_client.realm-client.id
   name            = "realm roles"
   protocol        = "openid-connect"
   protocol_mapper = "oidc-usermodel-realm-role-mapper"
@@ -79,13 +77,14 @@ resource "keycloak_generic_protocol_mapper" "realm_roles_mapper" {
     "claim.name" : var.realm_client_roles_jwt_claim,
     "jsonType.label" : "String",
     "multivalued" : "true",
-    "userinfo.token.claim" : "true"
+    "userinfo.token.claim" : "true",
+    "introspection.token.claim" : "true"
   }
 }
 
 resource "keycloak_openid_client_default_scopes" "client_default_scopes" {
   realm_id  = var.realm_id
-  client_id = keycloak_openid_client.webapp-client.id
+  client_id = keycloak_openid_client.realm-client.id
   default_scopes = [
     "web-origins",
     "acr",
@@ -98,7 +97,7 @@ resource "keycloak_openid_client_default_scopes" "client_default_scopes" {
 
 resource "keycloak_openid_client_optional_scopes" "client_optional_scopes" {
   realm_id  = var.realm_id
-  client_id = keycloak_openid_client.webapp-client.id
+  client_id = keycloak_openid_client.realm-client.id
   optional_scopes = [
     "address",
     "phone",

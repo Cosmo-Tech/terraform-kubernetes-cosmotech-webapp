@@ -1,6 +1,8 @@
 locals {
-  keycloak_url_auth        = "${var.keycloak_url}/realms/${var.kubernetes_tenant_namespace}"
-  webapp_helm_release_name = "${var.webapp_deployment_name}-${var.kubernetes_tenant_namespace}"
+  keycloak_url_auth            = "${var.keycloak_url}/realms/${var.kubernetes_tenant_namespace}"
+  webapp_helm_release_name     = "${var.webapp_deployment_name}-${var.kubernetes_tenant_namespace}"
+  webapp_powerbi_app_client_id = var.webapp_powerbi_app_client_id == "" ? data.kubernetes_secret.powerbi.data.client_id : var.webapp_powerbi_app_client_id
+  webapp_powerbi_app_secret    = var.webapp_powerbi_app_secret == "" ? data.kubernetes_secret.powerbi.data.client_secret : var.webapp_powerbi_app_secret
   webapp_variables = {
     "WEBAPP_DEPLOYMENT_NAME"     = var.webapp_deployment_name
     "API_DNS_NAME"               = var.api_dns_name
@@ -9,8 +11,8 @@ locals {
     "IMAGE_REPOSITORY_FUNCTIONS" = var.webapp_image_repository_functions
     "KEYCLOAK_URL_AUTH"          = local.keycloak_url_auth
     "POWERBI_APP_TENANT_ID"      = var.webapp_powerbi_app_tenant_id
-    "POWERBI_APP_CLIENT_ID"      = var.webapp_powerbi_app_client_id
-    "POWERBI_APP_SECRET"         = var.webapp_powerbi_app_secret
+    "POWERBI_APP_CLIENT_ID"      = local.webapp_powerbi_app_client_id
+    "POWERBI_APP_SECRET"         = local.webapp_powerbi_app_secret
   }
 
   cm_data_global = {
@@ -24,6 +26,13 @@ locals {
     "ORGANIZATION_ID"               = var.webapp_cm_global_organization_id
     "PUBLIC_URL"                    = var.webapp_cm_global_public_url
     "WORKSPACES_IDS_FILTER"         = var.webapp_cm_global_workspaces_ids_filter
+  }
+}
+
+data "kubernetes_secret" "powerbi" {
+  metadata {
+    name      = "${var.webapp_deployment_name}-powerbi-client"
+    namespace = var.kubernetes_tenant_namespace
   }
 }
 
@@ -59,21 +68,6 @@ resource "kubernetes_secret" "workspaces" {
     "POSTGRES_USER_NAME"     = var.webapp_workspace_secret_postgres_user_name
   }
 }
-
-# resource "kubernetes_secret" "functions" {
-#   metadata {
-#     name      = "${var.kubernetes_tenant_namespace}-functions-secret"
-#     namespace = var.kubernetes_tenant_namespace
-#   }
-
-#   data = {
-#     "POWER_BI_TENANT_ID"     = var.webapp_powerbi_app_tenant_id
-#     "POWER_BI_CLIENT_ID"     = var.webapp_powerbi_app_client_id
-#     "POWER_BI_CLIENT_SECRET" = var.webapp_powerbi_app_secret
-#     "KEYCLOAK_REALM_URL"     = local.keycloak_url_auth
-#     "ROLES_JWT_CLAIM"        = var.webapp_roles_jwt_claim
-#   }
-# }
 
 resource "helm_release" "csm-webapp" {
   name         = local.webapp_helm_release_name
