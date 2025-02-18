@@ -87,3 +87,13 @@ webapp_workspace_secret_postgres_host_uri      = ""
 webapp_workspace_secret_postgres_user_name     = ""
 webapp_workspace_secret_postgres_user_password = ""
 
+#APP Deployment
+api_deployment_helm_chart                   = "api-deployment"
+api_deployment_helm_repository              = "https://cosmo-tech.github.io/tekton/"
+api_deployment_chart_package_version        = "0.1.19"
+api_deployment_helm_release_name            = "cosmotech-business-webapp-deployment"
+api_docker_secret                           = "" 
+api_webhook_secret                          = ""
+api_ingress_type                            = ""
+api_ngrok_host                              = ""
+api_helm_chart_pull_type                    = ""
