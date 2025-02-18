@@ -17,6 +17,7 @@
 | <a name="module_deploy-powerbi-app"></a> [deploy-powerbi-app](#module\_deploy-powerbi-app) | ./deploy-powerbi-app | n/a |
 | <a name="module_deploy-realm-client"></a> [deploy-realm-client](#module\_deploy-realm-client) | ./deploy-realm-client | n/a |
 | <a name="module_deploy-webapp"></a> [deploy-webapp](#module\_deploy-webapp) | ./deploy-webapp | n/a |
+| <a name="module_deploy-webapp-tekton"></a> [deploy-webapp-tekton](#module\_deploy-webapp-tekton) | ./deploy-webapp-tekton | n/a |
 
 ## Inputs
 
@@ -26,6 +27,15 @@
 | <a name="input_api_organization_id"></a> [api\_organization\_id](#input\_api\_organization\_id) | n/a | `string` | n/a | yes |
 | <a name="input_api_workspace_id"></a> [api\_workspace\_id](#input\_api\_workspace\_id) | n/a | `string` | n/a | yes |
 | <a name="input_app_deploy"></a> [app\_deploy](#input\_app\_deploy) | n/a | `bool` | n/a | yes |
+| <a name="input_app_deployment_chart_package_version"></a> [app\_deployment\_chart\_package\_version](#input\_app\_deployment\_chart\_package\_version) | n/a | `string` | n/a | yes |
+| <a name="input_app_deployment_helm_chart"></a> [app\_deployment\_helm\_chart](#input\_app\_deployment\_helm\_chart) | n/a | `string` | n/a | yes |
+| <a name="input_app_deployment_helm_release_name"></a> [app\_deployment\_helm\_release\_name](#input\_app\_deployment\_helm\_release\_name) | n/a | `string` | n/a | yes |
+| <a name="input_app_deployment_helm_repository"></a> [app\_deployment\_helm\_repository](#input\_app\_deployment\_helm\_repository) | n/a | `string` | n/a | yes |
+| <a name="input_app_docker_secret"></a> [app\_docker\_secret](#input\_app\_docker\_secret) | n/a | `string` | n/a | yes |
+| <a name="input_app_helm_chart_pull_type"></a> [app\_helm\_chart\_pull\_type](#input\_app\_helm\_chart\_pull\_type) | n/a | `string` | n/a | yes |
+| <a name="input_app_ingress_type"></a> [app\_ingress\_type](#input\_app\_ingress\_type) | n/a | `string` | n/a | yes |
+| <a name="input_app_ngrok_host"></a> [app\_ngrok\_host](#input\_app\_ngrok\_host) | n/a | `string` | n/a | yes |
+| <a name="input_app_webhook_secret"></a> [app\_webhook\_secret](#input\_app\_webhook\_secret) | n/a | `string` | n/a | yes |
 | <a name="input_audience"></a> [audience](#input\_audience) | The App Registration audience type | `string` | n/a | yes |
 | <a name="input_azure_client_id"></a> [azure\_client\_id](#input\_azure\_client\_id) | n/a | `string` | n/a | yes |
 | <a name="input_azure_client_secret"></a> [azure\_client\_secret](#input\_azure\_client\_secret) | n/a | `string` | n/a | yes |
@@ -68,6 +78,7 @@
 | <a name="input_webapp_cm_global_public_url"></a> [webapp\_cm\_global\_public\_url](#input\_webapp\_cm\_global\_public\_url) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_cm_global_workspaces_ids_filter"></a> [webapp\_cm\_global\_workspaces\_ids\_filter](#input\_webapp\_cm\_global\_workspaces\_ids\_filter) | n/a | `list(string)` | n/a | yes |
 | <a name="input_webapp_deploy"></a> [webapp\_deploy](#input\_webapp\_deploy) | n/a | `bool` | n/a | yes |
+| <a name="input_webapp_deploy_tekton"></a> [webapp\_deploy\_tekton](#input\_webapp\_deploy\_tekton) | n/a | `bool` | n/a | yes |
 | <a name="input_webapp_deployment_name"></a> [webapp\_deployment\_name](#input\_webapp\_deployment\_name) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_helm_chart_name"></a> [webapp\_helm\_chart\_name](#input\_webapp\_helm\_chart\_name) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_helm_chart_repository"></a> [webapp\_helm\_chart\_repository](#input\_webapp\_helm\_chart\_repository) | n/a | `string` | n/a | yes |
