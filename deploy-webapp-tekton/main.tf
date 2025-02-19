@@ -1,6 +1,7 @@
 locals {
   keycloak_url_auth            = "${var.keycloak_url}/realms/${var.kubernetes_tenant_namespace}"
   webapp_helm_release_name     = "${var.webapp_deployment_name}-${var.kubernetes_tenant_namespace}"
+  tekton_helm_release_name     = "${var.tekton_deployment_name}-${var.kubernetes_tenant_namespace}"
   webapp_powerbi_app_client_id = var.webapp_powerbi_app_client_id == "" ? data.kubernetes_secret.powerbi.data.client_id : var.webapp_powerbi_app_client_id
   webapp_powerbi_app_secret    = var.webapp_powerbi_app_secret == "" ? data.kubernetes_secret.powerbi.data.client_secret : var.webapp_powerbi_app_secret
   webapp_variables = {
@@ -77,11 +78,11 @@ resource "kubernetes_secret" "workspaces" {
 }
 
 resource "helm_release" "csm-webapp-deployment" {
-  name         = local.webapp_helm_release_name
+  name         = local.tekton_helm_release_name
   namespace    = var.kubernetes_tenant_namespace
-  repository   = var.webapp_helm_chart_repository
-  chart        = var.webapp_helm_chart_name
-  version      = var.webapp_helm_chart_version
+  repository   = var.tekton_helm_chart_repository
+  chart        = var.tekton_helm_chart_name
+  version      = var.tekton_helm_chart_version
   reset_values = true
   timeout      = 300
   values       = [templatefile("${path.module}/values.yaml", local.webapp_variables)]

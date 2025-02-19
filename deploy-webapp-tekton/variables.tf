@@ -129,3 +129,19 @@ variable "ngrok_host" {
 variable "helm_chart_pull_type" {
   type = string
 }
+
+variable "tekton_deployment_name" {
+  type = string
+}
+
+variable "tekton_helm_chart_repository" {
+  type = string
+}
+
+variable "tekton_helm_chart_name" {
+  type = string
+}
+
+variable "tekton_helm_chart_version" {
+  type = string
+}

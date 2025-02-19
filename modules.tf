@@ -95,9 +95,9 @@ module "deploy-webapp-tekton" {
   api_dns_name                                   = var.api_dns_name
   keycloak_url                                   = var.keycloak_url
   kubernetes_tenant_namespace                    = var.kubernetes_tenant_namespace
-  webapp_helm_chart_name                         = var.app_deployment_helm_chart
-  webapp_helm_chart_repository                   = var.app_deployment_helm_repository
-  webapp_helm_chart_version                      = var.app_deployment_chart_package_version
+  webapp_helm_chart_name                         = var.webapp_helm_chart_name
+  webapp_helm_chart_repository                   = var.webapp_helm_chart_repository
+  webapp_helm_chart_version                      = var.webapp_helm_chart_version
   webapp_image_repository_functions              = var.webapp_image_repository_functions
   webapp_image_repository_server                 = var.webapp_image_repository_server
   webapp_powerbi_app_client_id                   = var.webapp_powerbi_app_client_id
@@ -129,6 +129,10 @@ module "deploy-webapp-tekton" {
   api_organization_id                            = var.api_organization_id
   api_workspace_id                               = var.api_workspace_id
   webapp_powerbi_roles_jwt_claim                 = var.webapp_powerbi_roles_jwt_claim
+  tekton_deployment_name                         = var.tekton_deployment_name
+  tekton_helm_chart_name                         = var.tekton_helm_chart
+  tekton_helm_chart_repository                   = var.tekton_helm_repository
+  tekton_helm_chart_version                      = var.tekton_chart_package_version
   docker_secret                                  = var.app_docker_secret
   wehbook_secret                                 = var.app_webhook_secret
   ngrok_host                                     = var.app_ngrok_host
