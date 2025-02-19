@@ -39,7 +39,7 @@ host: ${API_DNS_NAME}
 host_path_context: eng-test-dev/brewery-listener
 registry_url: cosmo-tech.github.io/helm-charts/
 chart_name: cosmotech-business-webapp
-chart_version: ${WEBAPP_CHART_VERSION}
+chart_version: 0.2.1
 ApiGithubWebhookSecret:
   secretToken: ${WEBHOOK_SECRET}
 ApiDockerSecret:
