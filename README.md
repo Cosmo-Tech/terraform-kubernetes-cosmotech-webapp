@@ -27,10 +27,6 @@
 | <a name="input_api_organization_id"></a> [api\_organization\_id](#input\_api\_organization\_id) | n/a | `string` | n/a | yes |
 | <a name="input_api_workspace_id"></a> [api\_workspace\_id](#input\_api\_workspace\_id) | n/a | `string` | n/a | yes |
 | <a name="input_app_deploy"></a> [app\_deploy](#input\_app\_deploy) | n/a | `bool` | n/a | yes |
-| <a name="input_app_deployment_chart_package_version"></a> [app\_deployment\_chart\_package\_version](#input\_app\_deployment\_chart\_package\_version) | n/a | `string` | n/a | yes |
-| <a name="input_app_deployment_helm_chart"></a> [app\_deployment\_helm\_chart](#input\_app\_deployment\_helm\_chart) | n/a | `string` | n/a | yes |
-| <a name="input_app_deployment_helm_release_name"></a> [app\_deployment\_helm\_release\_name](#input\_app\_deployment\_helm\_release\_name) | n/a | `string` | n/a | yes |
-| <a name="input_app_deployment_helm_repository"></a> [app\_deployment\_helm\_repository](#input\_app\_deployment\_helm\_repository) | n/a | `string` | n/a | yes |
 | <a name="input_app_docker_secret"></a> [app\_docker\_secret](#input\_app\_docker\_secret) | n/a | `string` | n/a | yes |
 | <a name="input_app_helm_chart_pull_type"></a> [app\_helm\_chart\_pull\_type](#input\_app\_helm\_chart\_pull\_type) | n/a | `string` | n/a | yes |
 | <a name="input_app_ingress_type"></a> [app\_ingress\_type](#input\_app\_ingress\_type) | n/a | `string` | n/a | yes |
@@ -66,6 +62,10 @@
 | <a name="input_realm_client_standard_flow_enabled"></a> [realm\_client\_standard\_flow\_enabled](#input\_realm\_client\_standard\_flow\_enabled) | n/a | `bool` | n/a | yes |
 | <a name="input_realm_client_web_origins"></a> [realm\_client\_web\_origins](#input\_realm\_client\_web\_origins) | n/a | `list(string)` | n/a | yes |
 | <a name="input_realm_id"></a> [realm\_id](#input\_realm\_id) | n/a | `string` | n/a | yes |
+| <a name="input_tekton_chart_package_version"></a> [tekton\_chart\_package\_version](#input\_tekton\_chart\_package\_version) | n/a | `string` | n/a | yes |
+| <a name="input_tekton_deployment_name"></a> [tekton\_deployment\_name](#input\_tekton\_deployment\_name) | n/a | `string` | n/a | yes |
+| <a name="input_tekton_helm_chart"></a> [tekton\_helm\_chart](#input\_tekton\_helm\_chart) | n/a | `string` | n/a | yes |
+| <a name="input_tekton_helm_repository"></a> [tekton\_helm\_repository](#input\_tekton\_helm\_repository) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_cm_content_security"></a> [webapp\_cm\_content\_security](#input\_webapp\_cm\_content\_security) | n/a | `list(string)` | n/a | yes |
 | <a name="input_webapp_cm_global_app_registration_client_id"></a> [webapp\_cm\_global\_app\_registration\_client\_id](#input\_webapp\_cm\_global\_app\_registration\_client\_id) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_cm_global_auth_kecloak_client_id"></a> [webapp\_cm\_global\_auth\_kecloak\_client\_id](#input\_webapp\_cm\_global\_auth\_kecloak\_client\_id) | n/a | `string` | n/a | yes |
