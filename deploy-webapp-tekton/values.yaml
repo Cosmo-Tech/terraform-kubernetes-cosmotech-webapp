@@ -36,13 +36,13 @@ apiConfig:
           cpu: 200m
           memory: 128Mi
 host: ${API_DNS_NAME}
-host_path_context: eng-test-dev/brewery-listener
-registry_url: cosmo-tech.github.io/helm-charts/
-chart_name: cosmotech-business-webapp
-chart_version: ${WEBAPP_CHART_VERSION}
-ApiGithubWebhookSecret:
+hostPathContext: eng-test-dev/brewery-listener
+registryUrl: cosmo-tech.github.io/helm-charts/
+chartName: cosmotech-business-webapp
+chartVersion: ${WEBAPP_CHART_VERSION}
+apiGithubWebhookSecret:
   secretToken: ${WEBHOOK_SECRET}
-ApiDockerSecret:
+apiDockerSecret:
   dockerconfigjson: ${DOCKER_SECRET}
 tolerations:
   - key: "vendor"
@@ -52,6 +52,6 @@ tolerations:
 nodeSelector:
   "cosmotech.com/tier": "services"
   "kubernetes.io/os": "linux"
-ingress_type: "${INGRESS_TYPE}"
-ngrok_host: "${NGROK_HOST}"
-helm_chart_pull_type: "${HELM_CHART_PULL_TYPE}"
+ingressType: "${INGRESS_TYPE}"
+ngrokHost: "${NGROK_HOST}"
+helmChartPullType: "${HELM_CHART_PULL_TYPE}"
