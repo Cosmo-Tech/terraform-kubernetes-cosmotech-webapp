@@ -55,3 +55,4 @@ nodeSelector:
 ingressType: "${INGRESS_TYPE}"
 ngrokHost: "${NGROK_HOST}"
 helmChartPullType: "${HELM_CHART_PULL_TYPE}"
+runCypressTests: true
