@@ -55,7 +55,7 @@ nodeSelector:
 ingressType: "${INGRESS_TYPE}"
 ngrokHost: "${NGROK_HOST}"
 helmChartPullType: "${HELM_CHART_PULL_TYPE}"
-runCypressTests: "true"
+runCypressTests: '"true"'
 webAppRepoUrl: "https://github.com/Cosmo-Tech/azure-sample-webapp.git"
 webAppRevision: "experimental/on_premises_api_v4"
 cypressBaseURL: "${API_DNS_NAME}${WEBAPP_PUBLIC_URL}"
