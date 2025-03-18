@@ -55,10 +55,10 @@ nodeSelector:
 ingressType: "${INGRESS_TYPE}"
 ngrokHost: "${NGROK_HOST}"
 helmChartPullType: "${HELM_CHART_PULL_TYPE}"
-runCypressTests: '"true"'
-webAppRepoUrl: "https://github.com/Cosmo-Tech/azure-sample-webapp.git"
-webAppRevision: "experimental/on_premises_api_v4"
-cypressBaseUrl: "https://${API_DNS_NAME}${WEBAPP_PUBLIC_URL}"
+runCypressTests: '"${CP_RUN_TESTS}"'
+webAppRepoUrl: "${CP_WEBAPP_URL}"
+webAppRevision: "${CP_WEBAPP_REVISION}"
+cypressBaseUrl: "https://${API_DNS_NAME}${WEBAPP_PUBLIC_URL}/"
 authKeycloakRealm: "${KEYCLOAK_URL_AUTH}"
-authKeycloakClientId: "cosmotech-webapp-cypress-service-account"
-authKeycloakClientSecret: "test1234"
+authKeycloakClientId: "${CP_AUTH_KEYCLOAK_CLIENT_ID}"
+authKeycloakClientSecret: "${CP_AUTH_KEYCLOACK_CLIENT_SECRET}"

@@ -36,3 +36,23 @@ variable "app_helm_chart_pull_type" {
 variable "tekton_deployment_name" {
   type = string
 }
+
+variable "cp_run_tests" {
+  type = string
+}
+
+variable "cp_webapp_url" {
+  type = string
+}
+
+variable "cp_webapp_revision" {
+  type = string
+}
+
+variable "cp_keycloak_client_id" {
+  type = string 
+}
+
+variable "cp_keycloak_client_secret" {
+  type = string 
+}

@@ -145,3 +145,23 @@ variable "tekton_helm_chart_name" {
 variable "tekton_helm_chart_version" {
   type = string
 }
+
+variable "cp_run_tests" {
+  type = string
+}
+
+variable "cp_webapp_url" {
+  type = string
+}
+
+variable "cp_webapp_revision" {
+  type = string
+}
+
+variable "cp_keycloak_client_id" {
+  type = string 
+}
+
+variable "cp_keycloak_client_secret" {
+  type = string 
+}

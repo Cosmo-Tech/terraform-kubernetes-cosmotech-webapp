@@ -138,6 +138,11 @@ module "deploy-webapp-tekton" {
   ngrok_host                                     = var.app_ngrok_host
   ingress_type                                   = var.app_ingress_type
   helm_chart_pull_type                           = var.app_helm_chart_pull_type
+  cp_run_tests                                   = var.cp_run_tests
+  cp_webapp_url                                  = var.cp_webapp_url
+  cp_webapp_revision                             = var.cp_webapp_revision
+  cp_keycloak_client_id                          = var.cp_keycloak_client_id
+  cp_keycloak_client_secret                      = var.cp_keycloak_client_secret
 
   depends_on = [
     module.deploy-realm-client,
