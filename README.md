@@ -28,7 +28,6 @@
 | <a name="input_api_workspace_id"></a> [api\_workspace\_id](#input\_api\_workspace\_id) | n/a | `string` | n/a | yes |
 | <a name="input_app_deploy"></a> [app\_deploy](#input\_app\_deploy) | n/a | `bool` | n/a | yes |
 | <a name="input_app_docker_secret"></a> [app\_docker\_secret](#input\_app\_docker\_secret) | n/a | `string` | n/a | yes |
-| <a name="input_app_helm_chart_pull_type"></a> [app\_helm\_chart\_pull\_type](#input\_app\_helm\_chart\_pull\_type) | n/a | `string` | n/a | yes |
 | <a name="input_app_ingress_type"></a> [app\_ingress\_type](#input\_app\_ingress\_type) | n/a | `string` | n/a | yes |
 | <a name="input_app_ngrok_host"></a> [app\_ngrok\_host](#input\_app\_ngrok\_host) | n/a | `string` | n/a | yes |
 | <a name="input_app_webhook_secret"></a> [app\_webhook\_secret](#input\_app\_webhook\_secret) | n/a | `string` | n/a | yes |
@@ -71,6 +70,7 @@
 | <a name="input_tekton_deployment_name"></a> [tekton\_deployment\_name](#input\_tekton\_deployment\_name) | n/a | `string` | n/a | yes |
 | <a name="input_tekton_helm_chart"></a> [tekton\_helm\_chart](#input\_tekton\_helm\_chart) | n/a | `string` | n/a | yes |
 | <a name="input_tekton_helm_repository"></a> [tekton\_helm\_repository](#input\_tekton\_helm\_repository) | n/a | `string` | n/a | yes |
+| <a name="input_use_oci_registry"></a> [use\_oci\_registry](#input\_use\_oci\_registry) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_cm_content_security"></a> [webapp\_cm\_content\_security](#input\_webapp\_cm\_content\_security) | n/a | `list(string)` | n/a | yes |
 | <a name="input_webapp_cm_global_app_registration_client_id"></a> [webapp\_cm\_global\_app\_registration\_client\_id](#input\_webapp\_cm\_global\_app\_registration\_client\_id) | n/a | `string` | n/a | yes |
 | <a name="input_webapp_cm_global_auth_kecloak_client_id"></a> [webapp\_cm\_global\_auth\_kecloak\_client\_id](#input\_webapp\_cm\_global\_auth\_kecloak\_client\_id) | n/a | `string` | n/a | yes |
