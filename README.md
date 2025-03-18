@@ -38,6 +38,11 @@
 | <a name="input_azure_subscription_id"></a> [azure\_subscription\_id](#input\_azure\_subscription\_id) | n/a | `string` | n/a | yes |
 | <a name="input_azure_tenant_id"></a> [azure\_tenant\_id](#input\_azure\_tenant\_id) | n/a | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | n/a | `string` | n/a | yes |
+| <a name="input_cp_keycloak_client_id"></a> [cp\_keycloak\_client\_id](#input\_cp\_keycloak\_client\_id) | n/a | `string` | n/a | yes |
+| <a name="input_cp_keycloak_client_secret"></a> [cp\_keycloak\_client\_secret](#input\_cp\_keycloak\_client\_secret) | n/a | `string` | n/a | yes |
+| <a name="input_cp_run_tests"></a> [cp\_run\_tests](#input\_cp\_run\_tests) | n/a | `string` | n/a | yes |
+| <a name="input_cp_webapp_revision"></a> [cp\_webapp\_revision](#input\_cp\_webapp\_revision) | n/a | `string` | n/a | yes |
+| <a name="input_cp_webapp_url"></a> [cp\_webapp\_url](#input\_cp\_webapp\_url) | n/a | `string` | n/a | yes |
 | <a name="input_keycloak_client_id"></a> [keycloak\_client\_id](#input\_keycloak\_client\_id) | n/a | `string` | n/a | yes |
 | <a name="input_keycloak_client_secret"></a> [keycloak\_client\_secret](#input\_keycloak\_client\_secret) | n/a | `string` | n/a | yes |
 | <a name="input_keycloak_password"></a> [keycloak\_password](#input\_keycloak\_password) | n/a | `string` | n/a | yes |
