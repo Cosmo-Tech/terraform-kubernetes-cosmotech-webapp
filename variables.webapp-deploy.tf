@@ -29,7 +29,7 @@ variable "app_ngrok_host" {
   type = string
 }
 
-variable "app_helm_chart_pull_type" {
+variable "use_oci_registry" {
   type = string
 }
 

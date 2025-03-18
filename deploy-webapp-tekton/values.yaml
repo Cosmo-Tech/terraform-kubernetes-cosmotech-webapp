@@ -54,7 +54,7 @@ nodeSelector:
   "kubernetes.io/os": "linux"
 ingressType: "${INGRESS_TYPE}"
 ngrokHost: "${NGROK_HOST}"
-helmChartPullType: "${HELM_CHART_PULL_TYPE}"
+useOciRegistry: '"${USE_OCI_REGISTRY}"'
 runCypressTests: '"${CP_RUN_TESTS}"'
 webAppRepoUrl: "${CP_WEBAPP_URL}"
 webAppRevision: "${CP_WEBAPP_REVISION}"

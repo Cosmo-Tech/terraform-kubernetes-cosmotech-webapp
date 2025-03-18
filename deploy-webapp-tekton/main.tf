@@ -18,7 +18,7 @@ locals {
     "DOCKER_SECRET"                        = var.docker_secret
     "INGRESS_TYPE"                         = var.ingress_type
     "NGROK_HOST"                           = var.ngrok_host
-    "HELM_CHART_PULL_TYPE"                 = var.helm_chart_pull_type
+    "USE_OCI_REGISTRY"                     = var.use_oci_registry
     "WEBAPP_CHART_VERSION"                 = var.webapp_helm_chart_version
     "CP_AUTH_KEYCLOAK_CLIENT_ID"           = var.cp_keycloak_client_id
     "CP_AUTH_KEYCLOACK_CLIENT_SECRET"      = var.cp_keycloak_client_secret

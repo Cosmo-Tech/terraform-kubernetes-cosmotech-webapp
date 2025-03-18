@@ -137,7 +137,7 @@ module "deploy-webapp-tekton" {
   wehbook_secret                                 = var.app_webhook_secret
   ngrok_host                                     = var.app_ngrok_host
   ingress_type                                   = var.app_ingress_type
-  helm_chart_pull_type                           = var.app_helm_chart_pull_type
+  use_oci_registry                               = var.use_oci_registry
   cp_run_tests                                   = var.cp_run_tests
   cp_webapp_url                                  = var.cp_webapp_url
   cp_webapp_revision                             = var.cp_webapp_revision
