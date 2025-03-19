@@ -25,6 +25,7 @@ locals {
     "CP_WEBAPP_URL"                        = var.cp_webapp_url
     "CP_WEBAPP_REVISION"                   = var.cp_webapp_revision
     "CP_RUN_TESTS"                         = var.cp_run_tests
+    "NAMESPACE"                            = var.kubernetes_tenant_namespace 
 
   }
 
